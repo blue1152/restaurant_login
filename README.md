@@ -8,6 +8,11 @@
 - express-handlebars
 - body-parser
 - mongoose
+- method-override
+- express-session
+- passport
+- passport-local
+- connect-flash
 - nodemon
 
 ## 如何啟動本專案
@@ -34,6 +39,14 @@ $ nvm install 10.15.0
 $ npm install
 ```
 
+### 建立資料庫中的種子資料
+
+打開終端機，在models/seeds目錄下，執行resSeeders.js來建立資料庫中的種子資料：
+
+```
+$ nodemon resSeeders.js
+```
+
 ### 透過 nodemon 來啟動伺服器
 
 打開終端機，輸入以下指令，並在瀏覽器檢視伺服器的回應：
@@ -44,6 +57,7 @@ $ nodemon app.js
 
 ## 餐廳清單的內容
 
+- 使用者可以註冊帳號
 - 導覽列、首頁具有搜尋框，可輸入關鍵字尋找餐廳
 - 餐廳分類：每一間餐廳都有分類標籤
 - 餐廳評價：以星等標示
