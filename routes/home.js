@@ -1,20 +1,23 @@
 const express = require("express");
 const router = express.Router();
 const Res = require("../models/res");
+// 載入 auth middleware 裡的 authenticated 方法
+const { authenticated } = require("../config/auth");
 
 // setting routes
-router.get("/", (req, res) => {
-  Res.find((err, restaurants) => {
+router.get("/", authenticated, (req, res) => {
+  Res.find({ userId: req.user._id }, (err, restaurants) => {
     if (err) return console.error(err);
     return res.render("index", { restaurants: restaurants }); // 將資料傳給 index
   });
 });
 //搜尋框
-router.get("/search", (req, res) => {
+router.get("/search", authenticated, (req, res) => {
   const keyword = req.query.keyword;
   const keywordRegex = new RegExp(keyword, "i"); //正規表達式
   Res.find(
     {
+      $and: [{ userId: req.user._id }],
       $or: [
         { name: { $regex: keywordRegex, $options: "$i" } },
         { category: { $regex: keywordRegex } }
