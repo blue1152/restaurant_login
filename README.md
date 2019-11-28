@@ -1,4 +1,4 @@
-# Ivy 的餐廳清單\_CRUD 版本
+# Ivy 的餐廳清單_login版本
 
 利用 Node.js 跟 Express 建立簡單的伺服器，使用 mongoDB 作為資料庫，並搭配 Bootstrap 打造出餐廳清單
 
@@ -17,7 +17,7 @@
 打開終端機，輸入以下指令：
 
 ```
-$ git clone https://github.com/blue1152/restaurant_CRUD.git
+$ git clone https://github.com/blue1152/restaurant_login.git
 ```
 
 ### 安裝 Node.js，並透過 npm 來安裝 package.json 檔案所定義的相依套件
